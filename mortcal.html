@@ -1,0 +1,163 @@
+<html>
+<head>
+
+<section>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</section>
+
+
+<title>Mortgage Calculator</title>
+
+</head>
+
+<body><section class="hero is-bold is-primary"><div class="hero-body"><div class="container"><h1 class="title">
+
+Mortgage Calculator
+</h1><br><h2 class="subtitle">
+
+A mortage calculator web app for phase 1 of IT 680 - by Sai Prasanth A
+
+</h2></div></div></section>
+
+<br>
+
+<div class="container is-widescreen">
+<div class="columns"> <div class="column is-three-quarters"> <div class="card"> <div class="card-content">
+
+<form>
+
+<div class="level"> <div class="level-left is-marginless"> <div class="level-item"> <p class="number"><i class="fas fa-user-tie"></i></p>
+
+User Name :
+
+</div></div> <div class="level-right"> <div class="level-item"> <div class="field"> <div class="control has-icons-left">
+<input class="input" id="name" type="text" /> <span class="icon is-small is-left"> <i class="fas fa-user-tie"></i></span></div></div></div></div></div>
+
+<!-- for loan amount display & input-->
+<div class="level"> <div class="level-left is-marginless"> <div class="level-item"> <p class="number"><i class="fas fa-hand-holding-usd"></i></p>
+
+Loan Amount :
+
+</div></div> <div class="level-right"> <div class="level-item"> <div class="field"> <div class="control has-icons-left">
+<input class="input" id="principal" type="number" /> <span class="icon is-small is-left"> <i class="fa fa-dollar-sign"></i></span></div></div></div></div></div>
+
+<!-- for Interest Rate display & input-->
+<div class="level"><div class="level-left is-marginless"><div class="level-item"><p class="number"><i class="fas fa-percent"></i></p>
+
+Interest Rate :
+
+</div></div><div class="level-right"><div class="level-item"><div class="field"><div class="control has-icons-left ">
+<input class="input" id="interest" type="number" /><span class="icon is-small is-left"><i class="fa fa-percentage"></i></span></div></div></div></div></div>
+
+<!-- for months display & input-->
+<div class="level"><div class="level-left is-marginless"><div class="level-item"><p class="number"><i class="far fa-calendar-alt"></i></p>
+
+Months :
+
+</div></div><div class="level-right"><div class="level-item"><div class="field"><div class="control has-icons-left ">
+<input class="input" id="terms" type="number" /><span class="icon is-small is-left"><i class="fa fa-calendar"></i></span></div></div></div></div></div>
+
+<!-- for extra payment display & input-->
+<div class="level"><div class="level-left is-marginless"><div class="level-item"><p class="number"><i class="fa fa-dollar-sign"></i></p>
+
+Extra Monthly Payment
+
+</div></div><div class="level-right"><div class="level-item"><div class="field"><div class="control has-icons-left ">
+<input class="input" id="extra" type="number" /><span class="icon is-small is-left"><i class="fa fa-dollar-sign"></i></span></div></div></div></div></div>
+
+<!-- for Calculate Button-->
+<input class="button is-medium is-fullwidth is-primary is-outlined" type="button" value="Calculate" onclick="getValues()" />
+
+</form>
+
+</div></div><br><br>
+
+<section>
+
+<h4 class="title is-3">Your Payments : </h4>
+
+<br><nav class="level"><div class="level-item has-text-centered"><div class="heading"><p class="heading">
+
+Name
+
+</p><div id="nm" class="title is-3"></div></div></div><div class="level-item has-text-centered"><div class="heading">      <p class="heading">
+
+Loan amount
+
+</p><div id="am" class="title"></div></div></div><div class="level-item has-text-centered"><div><p class="heading">
+
+Interest Rate
+
+</p><div id="in" class="title"></div></div></div><div class="level-item has-text-centered"><div><p class="heading">
+
+Months
+
+</p><div id="mon" class="title"></div></div></div><div class="level-item has-text-centered"><div><p class="heading">
+
+Monthly payment
+
+</p><div id="mp" class="title"></div></div></div></nav><nav class="level"><div class="level-item has-text-centered">      <div><p class="heading">
+
+Extra
+
+</p><div id="ex" class="title"></div></div></div><div class="level-item has-text-centered"><div><p class="heading">
+
+Total Monthly payment
+
+</p><div id="tmp" class="title"></div></div></div><div class="level-item has-text-centered"><div><p class="heading">
+
+Total Payment
+
+</p><div id="tot" class="title"></div></div></div><div class="level-item has-text-centered"><div><p class="heading">
+
+Early Payoff by
+
+</p><div id="early" class="title"></div></div></div></nav>
+
+</section>
+
+<br><br>
+
+<section>
+<h4 class="title is-3">Amortization Schedule : </h4>
+<div class="table-container">
+
+<table class="table is-bordered is-narrow is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th>Month</th>
+      <th>Payment</th>
+      <th>Interest</th>
+      <th>Total Interest</th>
+      <th>Principal</th>
+      <th>Balance</th>
+      </tr>
+  </thead><br>
+  <tbody id="amor"></tbody>
+</table>
+
+</div>
+</section>
+
+</div>
+
+
+</body>
+
+<script src="work.js" charset="utf-8"></script>
+
+</html>
+
+<script language="javascript">
+
+var wwOpenInstalled;
+if (wwOpenInstalled || parent.wwOpenInstalled) {
+	if (window.Event) {
+		document.captureEvents (Event.MOUSEUP);
+	}
+	document.onmouseup = (parent.wwOpenInstalled) ? parent.wwOnMouseUp : wwOnMouseUp;
+}
+</script>
